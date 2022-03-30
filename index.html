@@ -1,335 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #8cc63f;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #8cc63f;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #8cc63f;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #8cc63f;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #8cc63f;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #8cc63f;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      How to prepare your child for their first Pediatric Dentist visit? | Kangaroo Smiles Pediatric Dentistry and Orthodontics
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://www.kangaroosmiles.com/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://g.page/KangarooSmiles?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>
+            How to prepare your child for their first Pediatric Dentist visit?
+          </h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
+        <section>
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/_rDlW_fjN0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <a
+            class="button-link"
+            href="https://www.kangaroosmiles.com/first-visit/how-to-prepare-your-child-for-their-first-pediatric-dentist-visit/"
+            >Read Post</a
+          >
+        </section>
 
-  .two-col div {
-    width: 100%;
-  }
+        <section>
+          <p>
+            A <a style="color:#8cc63f" href="https://www.kangaroosmiles.com/the-benefits-of-pediatric-dentist-in-lowell-ma/">pediatric dentist</a> is a dentist who specializes in the care of children’s teeth. They are experts when it comes to dealing with children’s unique dental needs and can help ensure that your child has healthy teeth and gums for life. If you’re wondering how to prepare your child for their first pediatric dentist visit, read on for some tips.
+          </p>
+          <br />
+          <p>The most important thing you can do to prepare your child for their first pediatric dentist visit is to make sure they are comfortable with the idea of going to the dentist. Talk to them about why they’re going and explain that the <a style="color: #8cc63f" href="https://www.kangaroosmiles.com/a-pediatric-dentist-can-help-keep-your-childs-teeth-healthy-in-lowell-ma/">dentist will help them keep their teeth healthy</a>. If possible, take them to the dentist’s office before their appointment so they can get a feel for the environment.</p>
+          <p>
+            At our <a style="color: #8cc63f"href="https://www.kangaroosmiles.com/pediatric-dentist-in-lowell-massachusetts-dental-services-for-children/">pediatric dental practice in Massachusetts</a>, we work hard to make sure every child feels comfortable and welcome. We specialize in providing gentle, compassionate care to kids of all ages. We understand that some children may be apprehensive about visiting the dentist, so we do our best to make the experience fun and positive.
+          </p>
+          <p>Kangaroo smiles are the best kind of smiles. They’re infectious and make everyone around them happy. This is why pediatric dentists are so important – they help to create kangaroo smiles in children at an early age, setting them up for a lifetime of happiness.</p>
+          <a class="button-link" href="https://www.kangaroosmiles.com/"
+            >Visit Us</a
+          >
+        </section>
 
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>When to start bringing your child to the pediatric dentist in Massachusetts? | Kangaroo Smiles Pediatric Dentistry and Orthodontics</title>
-</head>
+        <section>
+          <h2>Give them water to drink instead of sugary drinks.</h2>
+          <p>Sugary drinks are one of the main causes of tooth decay in children. Pediatric dentists recommend that children drink water instead of sugary drinks. Water helps rinse away food particles and bacteria from teeth and gums, while sugary drinks provide a breeding ground for bacteria that can cause tooth decay.</p>
+          <p>A pediatric dentist is a dentist who specializes in the care of children’s teeth. They have undergone special training in order to be able to treat the unique dental needs of children, including providing dental care for infants, toddlers, and adolescents. Pediatric dentists are typically located in pediatric dental practices, but may also work in general dentistry practices.</p>
+          <p>If you are looking for a pediatric dentist in Massachusetts, be sure to check out Kangaroo Smiles. We are a pediatric dental practice that specializes in providing high-quality dental care to children of all ages. Our team of experienced and qualified dentists is dedicated to making your child’s visit to the dentist a fun and positive experience. We offer a wide range of dental services, including preventive care, cavity fillings, root canals, and crowns.</p>
+          <p>Pediatric dentists are specialists who work with children from infancy through adolescence. They have the additional training and experience necessary to provide care for infants, children, and adolescents with special needs. A pediatric dentist is a dentist who specializes in the care of children’s teeth. They are experts in helping kids maintain healthy teeth and preventing dental problems from developing.</p>
+        </section>
 
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://www.kangaroosmiles.com/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/KangarooSmiles?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a>
-    </ul>
-  </nav>
+        <section>
+          <h2>Avoid giving them candy and other sweets.</h2>
+          <p>The best way to prevent cavities in young children is to avoid giving them candy and other sweets. Instead, offer them healthier snacks such as fresh fruit or vegetables. If your child does eat candy, brush their teeth afterward to remove any sugar and plaque that may have built up.</p>
+          <p>pediatric dentists help ensure that children have healthy teeth and gums. They provide preventive dental care, including screenings, cleanings, and fluoride treatments; treat tooth decay; and perform other dental procedures. Pediatric dentists also provide oral health education and advice to parents and children.</p>
+          <p>A pediatric dentist is a dentist who specializes in the care of children’s teeth. In Massachusetts, there are many pediatric dentists to choose from. If you are looking for a qualified and experienced pediatric dentist, you should consider one of these professionals. Pediatric dentists are specially trained to care for the dental needs of children from infancy through adolescence. They have the experience and expertise to provide a wide range of services, from preventive care to complex procedures.</p>
+          <p>A pediatric dentist is a dentist who specializes in the care of children’s teeth. They can provide routine dental care such as cleanings and fillings, as well as more complex procedures such as braces or root canals.</p>
+        </section>
 
-  <!-- Main Content Container -->
-  <div class="container">
+        <section>
 
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>When to start bringing your child to the pediatric dentist in Massachusetts?</h1>
-      </section>
+          <div style="display: flex; justify-content:center">
+            <img style="width: 500px" src="https://lh3.googleusercontent.com/geougc/AF1QipP_ciR6bdm0jbISuRQMp2ctUEL4PIbSFqJh408e=h400-no" alt="Pediatric Dentist Massachusetts">
+          </div>
+          <br>
+          <h2 style="text-align:center">Teach them how to brush their own teeth properly.</h2>
+          <hr>
+          <br>
+          <p>Many pediatric dentist offices also offer counseling to help parents teach their children how to brush their own teeth properly. This can be an important step in ensuring that your child maintains good oral health habits for life. If you are looking for a pediatric dentist in Massachusetts, be sure to schedule a consultation with one of our experienced professionals today.</p>
+          <p>I’m a pediatric dentist in Massachusetts. I love working with kids, and I always enjoy seeing them smile. One of my favorite things to do is to see a child’s face light up when they get their teeth cleaned. It’s amazing how much joy a little kangaroo can bring to a child’s face! I always make sure to give my young patients a big smile when they’re done with their appointment.</p>
+          <p>A pediatric dentist is a specialized dentist who cares for children from infancy through adolescence. They have the necessary training and experience to provide preventive and corrective care for dental problems that are unique to young people.</p>
+          <p>Kangaroo smiles are a natural occurrence that pediatric dentists often see in young children. The name comes from the way the kangaroo’s mouth opens wide and exposes its large front teeth, similar to the way children smile. Kangaroo smiles are generally considered to be a sign of happiness or excitement.</p>
+          <p>Pediatric dentists are specially trained to treat the oral health needs of children from infancy through adolescence. They have the experience and knowledge to provide a wide range of dental services, from routine cleanings and fillings to more complex procedures such as root canals and tooth extractions. In addition, pediatric dentists are experts in helping kids feel comfortable during dental appointments.</p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=1444864596059154785"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/vkpfn73nm1U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <a class="button-link"
-            href="https://www.kangaroosmiles.com/blog/when-to-start-bringing-your-child-to-the-pediatric-dentist-in-massachusetts/">Read Post</a>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5869.54119461699!2d-71.301033!3d42.645023!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x140d30b1e4a4e961!2sKangaroo%20Smiles%20Pediatric%20Dentistry%20and%20Orthodontics-%20Children&#39;s%20Dentistry!5e0!3m2!1sen!2sph!4v1648612084762!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </section>
 
-      <section>
-          <p>While there is no specific age at which children need to visit the dentist, it’s not too early for them to get used to sitting in a dental chair. This can help minimize fear and anxiety about future visits. If you’re wondering how often your child should go or what kinds of things they’ll be doing at their first appointment, read on! Here are some tips for getting started with the process of taking care of your kids’ teeth.</p><br>
-          <h2>What to Expect at an Early Dental Visit</h2>
-          <p>Your child should visit the pediatric dentist in Massachusetts by age two for his or her first check-up. This is when your child’s teeth will be examined, x-rays may be taken, and <a style="color: #8cc63f"href="https://www.kangaroosmiles.com/baby/what-is-pediatric-fluoride-treatment-why-is-it-necessary/">fluoride treatment will be given if necessary</a>. If you’re concerned about your little one handling dental work without cluing into what’s going on, don’t worry! Your child won’t get any fillings or other treatments during this visit. Rather, the dentist will prepare your child for a future appointment when such work can be done.</p>
-          <a class="button-link"
-                href="https://www.kangaroosmiles.com/">Visit Us</a>
-      </section>
-
-      <section>
-        <h2>What Will Your Child Do During Their First Dental Visit?</h2>
-        <p>Your child may play with some age-appropriate toys while the dentist checks his or her mouth and teeth. Your kiddo may also receive a toy or sticker as a reward for being so good during their first dental appointment! The pediatric dentist in Massachusetts will likely talk more about dental hygiene than actual work since young children aren’t ready for fillings, crowns, or other treatments. You can expect to talk about how much water your child should drink each day and whether your kiddo requires fluoride supplements in order to get enough of this mineral in his or her diet.</p>
-      </section>
-
-      <section>
-        <h2>When Should Your Child Return?</h2>
-        <p>Your child may return every six months, starting when he or she is age three, for regular check-ups that will include the cleaning of any plaque buildup on teeth. At this age, your child may also have a thorough exam checking for cavities between their teeth along with x-rays if necessary. If you’re still concerned about dental work being done before it’s time, know that at most all your little one might get are topical fluoride treatments to strengthen their teeth.</p>
-      </section>
-
-      <section>
-        <h2>What to Do Before Your Child’s First Dental Visit</h2>
-        <p>In order for your child to have a great first appointment with the dentist in Massachusetts, it may help to do a little pre-planning. Here are some things you can share with your kiddo prior to going:</p>
-        <p>-Going to the dentist is fun! You get a special toothbrush and paste to use as well as a toy or sticker.</p>
-        <p>-You don’t need to be scared because you’ll sit in a big chair and see lots of cool equipment at the dentist’s office.</p>
-        <p>-The doctor will check your mouth and make sure it’s healthy. You’ll also learn how often you should brush each day, how much water you should drink, and how to keep plaque off your teeth.</p>
-        <p>-You can even make an appointment for a pretend visit at home if you think it will calm your kiddo’s nerves. This way, you can practice the things discussed above in advance.</p>
-        <p>-The pediatric dentist in Massachusetts wants to help you take care of your teeth so that they are healthy straight through adulthood!</p>
-      </section>
-
-      <section>
-        <h2>What If My Child is Nervous?</h2>
-        <p>If your little one seems nervous about visiting the dentist, talk with him or her about what to expect during the appointment before heading out to the office. You may want to consider letting them watch a kid-friendly video on dental visits or reading books together about dental visits prior to going in order to reduce fear and anxiety. While the pediatric dentist in Massachusetts will monitor your child for any signs of discomfort during treatment, you may get a better response if he or she is relaxed.</p>
-        <br>
-        <h2>What If My Child Isn’t Good with New People?</h2>
-        <p>While it’s wonderful that you want to help ease your youngster’s stress about visiting the dentist, remember that they must attend their early dental visit alone in order for the doctor to do their work without distraction. This is also necessary in order to give your little one space so they can come back when they’re ready for more treatment.</p>
-        <p>However, there are many steps you can take before an appointment to reduce your kiddo’s anxiety including watching videos or reading books together and making sure not to discuss how scary it might be beforehand. If your child has qualms about the dentist, try explaining how much fun it is beforehand and offering a reward for patience during his or her appointment.</p>
-        <br>
-        <h2>What to Do After Your Child’s First Dental Visit</h2>
-        <p>If you’re concerned that your child may be too anxious about returning to the pediatric dentist in Massachusetts, don’t expect them to immediately come around. Just like adults who are afraid of the dentist, children need time to adjust. So, make appointments with the pediatric dentist in Massachusetts every six months as recommended until they are used to visiting regularly.</p>
-        <p>The pediatric dentist in Massachusetts may be able to perform a lot of work at once, but ultimately your child will need to return every six months for routine cleanings and checkups. The pediatric dentist in Massachusetts can watch how much plaque builds up between visits and take care of any cosmetic issues like teeth that are yellowing over time. If your child is beginning to show signs of dental decay or you notice they have cavities, the pediatric dentist in Massachusetts can be more aggressive with their treatment plans.</p>
-        <br>
-        <h2>What About Future Visits?</h2>
-        <p>Following your pediatric dentist’s recommendations for brushing and flossing, as well as removing sugary foods from diets can help keep pediatric dental visits at bay. If you’re still concerned about taking your child to the pediatric dentist in Massachusetts when it seems necessary, talk with both them and their pediatrician or family doctor to come up with a game plan that works for everyone involved.</p>
-        <p>Because pediatric dental problems can be challenging to assess (and the pediatric dentist in Massachusetts may not always be available), a pediatrician or family doctor will likely have a great deal of input on when and what type of pediatric dental care is necessary.</p>
-        <br>
-        <h2>It’s important for pediatric dental visits to stay regular</h2>
-        <p>Your kids will start coming to the pediatric dentist in Massachusetts to see pediatric dentists around the time they start getting their teeth. But pediatric dental visits can provide healthcare benefits to your child well before this point in their life, as early as their first pediatric dental visit to a pediatric dentist in Massachusetts.</p>
-        <p>Bringing children in for pediatric dental visits at an early age allows pediatric dentists to examine their mouths and make sure nothing is wrong, especially if there are any tooth or gum tissues. The earlier pediatric dentists can diagnose and treat these problems, the better: if left untreated, these issues may become worse and cause more serious health concerns later down the line. For this reason, even infants should take advantage of pediatric dental services offered by Massachusett’spediatric dentists.</p>
-        <p>The pediatric dentist in Massachusetts will check your child’s teeth for cavities, damage, and other potentially serious problems. Your pediatric dentist may even help you with brushing techniques if necessary to ensure your child is taking care of their teeth properly.</p>
-      </section>
-
-      <section>
-          <h2>Pediatric Dentist in Massachusetts That Treat Children of All Ages</h2>
-          <p>Even pediatric dental visits that occur when your child is an infant can help them in the long run. If you bring Junior to the pediatric dentist early and often, pediatric dentists can make sure they get off to a good start with their oral health. Most pediatric dental issues happen because children don’t get routine pediatric dental care or pediatric dental care in general. Kids need pediatric dentists to make sure nothing is wrong, and pediatric dental services can do just that.</p>
-          <p>Many pediatric dentist offices offer pediatric dental treatments for children of all ages – even infants! Kangaroo Smiles have been pediatric dentists in Massachusetts, pediatric dentists can get children comfortable with pediatric dental services early on, making pediatric dental visits easier for everyone.</p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=1444864596059154785">Find Us Here!</a>
-      </section>
-
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5869.54119461699!2d-71.301033!3d42.645023!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x140d30b1e4a4e961!2sKangaroo%20Smiles%20Pediatric%20Dentistry%20and%20Orthodontics-%20Children&#39;s%20Dentistry!5e0!3m2!1sen!2sph!4v1648612084762!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </section>
-
-      <section>
+        <section>
           <h2>Things to do in Lowell, MA</h2>
-          <iframe src="https://www.tripadvisor.com/Attractions-g60891-Activities-Lowell_Massachusetts.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="350px" width="100%" allowfullscreen></iframe>
-      </section>
+          <iframe
+            src="https://www.tripadvisor.com/Attractions-g60891-Activities-Lowell_Massachusetts.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="350px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
+        <section>
           <h2>Lowell, MA News</h2>
-          <iframe src="https://www.lowellsun.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="350px" width="100%" allowfullscreen></iframe>
-      </section>
+          <iframe
+            src="https://www.lowellsun.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="350px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.kangaroosmiles.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.kangaroosmiles.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
-
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
         <!-- BUSINESS SITE -->
-       
+
         <!-- PEARL TREES -->
-        
+
         <!-- CLOUD STACK SITE -->
-        
-      <section>
-          <a target="_bLank"
-                href="https://rank-fortress-digital-agency.github.io/kangaroosmiles-02-22/">https://rank-fortress-digital-agency.github.io/kangaroosmiles-02-22/</a><br>
-          <a target="_bLank"
-                href="http://kangaroosmiles-02-22.s3-website-ap-southeast-1.amazonaws.com/">http://kangaroosmiles-02-22.s3-website-ap-southeast-1.amazonaws.com/</a><br>
-          <a target="_bLank"
-                href="https://delightful-klepon-e30156.netlify.app/">https://delightful-klepon-e30156.netlify.app/</a>
-      </section>
 
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/kangaroosmiles-03-22/"
+            >https://rank-fortress-digital-agency.github.io/kangaroosmiles-02-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://kangaroosmiles-03-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://kangaroosmiles-02-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://rococo-kleicha-2e8eab.netlify.app/"
+            >https://delightful-klepon-e30156.netlify.app/</a
+          >
+        </section>
+      </div>
 
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/KangarooSmiles/?fref=ts"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=1444864596059154785"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/channel/UCCqrzA_O2ugbJT48R97rTBw?view_as=subscriber"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://kangaroosmiles.com/">Main</a></li>
+            <li><a href="https://g.page/KangarooSmiles?share">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/KangarooSmiles/?fref=ts">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=1444864596059154785">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCCqrzA_O2ugbJT48R97rTBw?view_as=subscriber">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://kangaroosmiles.com/">Main</a></li>
-          <li><a href="https://g.page/KangarooSmiles?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
